@@ -1,0 +1,51 @@
+public class Team {
+    private static int teamCounter = 0;
+    private int teamId;//unique team identifier
+    private String name;//name of team
+    private String description;//description of team 
+    ArrayList<Stage> arrayListOfRiders = new ArrayList<>();//arraylist of all rider objects for given race
+
+
+    public Team(String name, String description) {
+        this.name = name;
+        this.decription = description;
+        teamCounter+=1;
+        teamId = teamCounter;
+    }
+
+    public String getTeamId (){
+        return teamId;
+    }
+
+    public String getName (){
+        return name;
+    }
+
+    public String getDescription (){
+        return description;
+    }
+
+    public String setName (String name) {
+        this.name = name;
+    }
+
+    public String setDescription (String description) {
+        this.description = description;
+    }
+
+    public void createRider (int teamId, String name, int yearOfBirth){
+        int teamIdnew = teamId;
+        String namenew=name;
+        int yearOfBirthnew=yearOfBirth; // TAKE FURTHER LOOK WHEN TESTING
+        Rider newRider = new Rider(int teamIdnew, String namenew, int yearOfBirthnew);
+        arrayListOfRiders.add(newRider);
+    }
+
+    public void removeRider (int riderId){
+        for (int i:arrayListOfRiders){
+            if ((i.getRiderId()).equals(riderId)){
+                arrayListOfRiders.remove(i);
+            }
+        }
+    }
+}
